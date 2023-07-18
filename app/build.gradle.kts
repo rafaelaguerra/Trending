@@ -51,32 +51,24 @@ android {
 
 dependencies {
     val lifecycleVersion = "2.6.1"
-    val retrofitVersion = "2.6.1"
     val koinVersion = "3.4.2"
-    val rxJavaVersion = "3.0.1"
 
     implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
-    implementation("io.reactivex.rxjava3:rxkotlin:$rxJavaVersion")
-    implementation("io.reactivex.rxjava3:rxandroid:$rxJavaVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
-    implementation("io.insert-koin:koin-android:$koinVersion")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Because of importing DI modules
+    implementation(project(":domain"))
+    implementation(project(":presentation"))
+    implementation(project(":data"))
+
 }

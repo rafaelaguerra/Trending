@@ -1,9 +1,9 @@
 package com.rguerra.trending
 
 import android.app.Application
-import com.rguerra.trending.data.di.dataModule
-import com.rguerra.trending.domain.di.domainModule
-import com.rguerra.trending.presentation.di.presentationModule
+import com.rguerra.domain.di.domainModule
+import com.rguerra.presentation.di.presentationModule
+import com.rguerra.data.di.dataModule
 import org.koin.core.context.startKoin
 
 class TrendingApplication : Application() {
